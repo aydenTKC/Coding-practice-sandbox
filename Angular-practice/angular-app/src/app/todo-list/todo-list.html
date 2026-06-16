@@ -1,4 +1,6 @@
+@for (todo of todoList; let i = $index; track i){
 <div class="list">
-    <h2>Todo 1</h2>
-    <button>Delete</button>
+    <h2>{{todo}}</h2>
+    <button (click)="delete(i)">Delete</button>
 </div>
+}

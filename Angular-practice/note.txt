@@ -1,0 +1,47 @@
+What is Angular
+- Web application framework for Single page
+- built by Google: Google uses Angular a lot
+- Has a huge community
+
+benefits of Angular
+- Faster development
+- Faster code generation (CLI)
+- Unit-test ready 
+- Opinionated
+    - Makes it easyt to switch companies ann teams
+- Code reusability
+
+
+Angular VS React
+Angular:
+- Is a framework
+- Has a built-in CLI
+- Has lots of tools and packages included for small-medium scale apps
+- is opinionated (better code style consistency)
+
+React:
+- Is a library
+- Does not have CLI
+- Requires you to install additional packages even for small scale apps
+
+
+Myths about Angular:
+- It is hard to learn
+- Will change significantly on every update
+- Angular is slow (not really)
+- Angular has a huge bundle size
+
+Angular Core Concepts:
+- Components, Service
+- Directive, Pipes
+- Data-Binding, Event Handlers
+- Http Module, Forms Module
+- Routing, Animations
+- Testing, Building for production
+
+
+Angular Components:
+Comprise the entire the website
+- AppComponent
+- HeaderComponent
+- HomeCOmponent
