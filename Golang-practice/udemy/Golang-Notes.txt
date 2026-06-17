@@ -1,0 +1,204 @@
+Sections: 1
+
+import fmt
+- fmt = how to print to the console
+ex: fmt.Println("Hello world")
+
+-------------------------------------------- 
+Section: 2 - Go Essentials
+
+- String has to be double quote 
+
+package
+ - one package for per applications 
+ - To organize codebase
+ - Easy to export and import other files
+
+Goland already comes with a huge library of packages
+
+go module 
+- In Go, a module is the unit of code distribution and dependency management.
+- A module is a collection of related Go packages that are versioned together. It defines
+	- What your project is - given a unique module path
+	- What is depends on - other modules and their require versions 
+- Key functions
+	- Dependency management: declares all external dependencies and their versions
+	- Versioning: Semantic versioning 
+	- Namespace/Import path: Root for all import paths within project
+
+Go build
+- Creates an executable 
+
+Declare variables 
+- var
+- can you colon key word
+	- year := 10 : This makes it so the type is inferred 
+- const 
+	- const makes it so you can never change it
+
+type sensitive: int, float, string
+- Can't mix different types 
+
+fmt.Scan() 
+- Asking the user for an input
+- Can be a string, int, float
+
+When using a comma in a print statement, you can add different data types
+	- fmt.Println("My name is: ", name )
+
+%v is a placeholder for variables when printing out
+- have to use the f in the print for formatting. 
+	- fmt.Printf("Name: %v", name)
+
+
+%f is a placeholder for variables when printing out
+- have to use the f in the print for formatting. \
+- This limits the remainder
+	- fmt.Printf("Name: %.1f", name)
+
+` = lets you to have a multiline print statement
+
+
+panic()
+is a good function when debugging.
+- Immediately stops the normal flow of the program and starts "unwinding" — it's Go's way of saying something went catastrophically wrong.
+
+Use log.Fatal for expected errors (file not found, bad input)
+Use panic for truly unexpected situations (bugs, impossible states)
+
+----------------------------------------------------------------------
+
+Section 3 - Working with Packages
+
+Package
+
+You can use different functions from different file as long as the are under the same package name
+- BUT!!! you can still use different function from files that have a different package name. All you have to do it just import it at the top. 
+		- That's just putting the file path name to that file
+		- This is pretty much saying that you want to use that file
+
+Export vs Import
+ - When you split code into separated packages you need to export or import 
+ - Is the unique way of handling public and private function
+
+Export = Just capitalize the first letter
+ - When a function starts with a capital = other file packages can use it
+ - But lets say its a lowercase = only file within the same package can use it
+
+import = its in another files 
+- EXAMPLE BELOW
+- import "yourmodulename/mypackage" 
+- func main() {
+    mypackage.SayHello()  // call it with package name prefix
+}
+File Structure
+myproject/
+├── go.mod          (module name defined here)
+├── main.go
+└── mypackage/
+    └── mypackage.go
+
+THIRD PARTY PACKAGES
+- This is where code is written by someone else that you download and use in my own project
+- EXMAPLE BELOW:
+
+// In terminal
+go get github.com/google/uuid
+
+import "github.com/google/uuid"
+
+func main() {
+    id := uuid.New()
+    fmt.Println(id)
+}
+- This will install the third party packages
+
+
+----------------------------------------------------------------------------
+
+
+Section 4 - Understanding Pointers
+
+What are Pointers?
+Why does this feature exist?
+How I can work with Pointers?
+
+
+Variables that are store values addresses instead of values
+
+You can avoid unnecessary value copies
+Directly mutate values
+
+& = makes the variables a memory address instead of that value
+
+* = changes the memory pointer back into the actual value
+
+EXAMPLE BELOW: 
+func main() {
+	age := 32
+
+	agePointer := &age
+
+	fmt.Println("Age: ", agePointer)
+	fmt.Println("Age: ", *agePointer)
+
+	fmt.Println(getAdultYears(agePointer))
+}
+
+func getAdultYears(age *int) int {
+	return *age - 18
+}
+
+
+-------------------------------------------------------------------------------
+
+Section 5 - Structs and Custom Types
+
+What are Structs?
+Creating and Using Structs
+Adding Methods to Structs
+
+Structs 
+- Grouping data and functions into collections
+- Allow us to structure our data and data types
+- Most times those variables are upper case
+
+
+when trying to update struts
+ - use * = which is a pointer to memory
+
+Structs Summary 
+- Is a custom type that is used to group related field into one value
+- Create struct functions
+- Can put into packages 
+- Functions casing is important
+- Must look at pointer to memory and not just make a copy
+	- & and *
+
+
+LOOK OVER THE structsPractice folder and the files path for good review and reference points
+- Good review on structs
+- Good review on exporting 
+- Good review on err 
+- Learn how to write in a json file 
+- Metadata
+- Global structs variables
+
+----------------------------------------------------------------------------------
+
+
+Section 6 - Interface and Genetic Code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
