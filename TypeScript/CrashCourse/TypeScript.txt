@@ -1,0 +1,344 @@
+TypeScript Full Course = From Beginner to Advance 
+
+How to run a js file
+- node "node file name"
+
+How to run a Go file
+go run "Go file name"
+
+
+Dynamic Typing
+ - You can store any type to a variable, string, int, float
+
+Compiler 
+ - Catches type-related errors before the program runs, leading to more reliable code
+ - Almost every error that we get in javascript code happens while were executing the code
+
+
+GO run on compile time
+JS run on runtime 
+
+
+TypeScript
+- Is adds the static typing ability to the JavaScript language
+- Keep the flexibility of javascript while adding the enforcement and the great aspects of statically typed languages
+- Is a superset of javascript
+- Just adds a type assignment 
+
+Using typescript allows us to check errors at compile time
+
+To use node to compile TS 
+- Configure Ts to Js code
+
+How to start a typescript
+- npm init -y
+- npm install typescript --save-dev
+- npx tsc --init
+
+// This is how you can create a vanilla project
+ npm init vite@latest project -- --template vanilla-ts
+
+const — value never changes:
+let — value can change, block scoped:
+var — value can change, but not block scoped (old way):
+
+
+------------------------------------------------------------
+2.1 - Primitive Types
+Number: lower case number
+- positive
+- negative 
+
+String: lower case string 
+- anything inside of ""
+- Template string ``
+
+Boolean 
+- True or false
+
+void 
+- When you want to return nothing 
+
+never
+- When a function never returns 
+
+null and undefined
+null
+- Is more of an empty of nothing
+
+undefined 
+- Is more of placeholder of something that hasn't been declared yet
+- May change or expect to change it in the future
+
+
+
+Running Ts file
+- Have to compile TS to JS 
+	- tsc filename.ts
+- Then run JS
+	- node filename.js
+
+-------------------------------------------------------------------
+
+2.2 Arrays and tuples
+
+Array
+- Can store any types together, buts its better to have the same types stored.
+
+Tuples: 
+- Is a fixed length array that defined values for each positions in the array
+	- const coord: [number, number] = [1,2];
+	// Another example below:
+	- const coord: [number, string] = [1,"hello"];
+	console.log(coord[1])
+
+	- More example below 
+const coords: [number,number][] = [
+    [1,8713],
+    [432,-4]
+]
+
+console.log(coords[0][1])
+
+
+-------------------------------------------------------------------------
+
+2.3 - Literals and Enums
+
+Literals
+- is in instance of a primitive type
+- strict type checking
+
+Enums
+- They are treated as a data type, and you can use them to create sets of constant for use with variables and properties
+- Instead of hard coding strings or numbers we can our code more readable and understandable
+
+
+------------------------------------------------------------------
+
+2.4 - Any, Unknown, and Type Casts
+
+Any type
+- This is when you want to manually want to by pass type checking
+- You use this when you are in a very complex situation and you are not able to predict what the type of the variable gonna
+- 
+
+Unknown
+- Provides a powerful way to handle values of uncertain types while maintaining type safety
+- Forces you to check for type
+
+Any VS Unknown
+- Any is a wildcard that disables type checking entirely, while unknown is the safer alternative that forces you to verify the type before using it.
+
+
+
+------------------------------------------------------------------
+
+2.5 Optional Chaining and Bang
+
+Skip sections
+
+------------------------------------------------------------------
+
+3.1 functions
+
+? = makes it an optional parameter
+EXAMPLE:
+	function makeName(firstName: string, lastName:string, middleName?: string){
+    
+}
+
+
+-----------------------------------------------------------------
+
+
+3.2 Advance Functions Types
+
+
+... = This is how you do unlimited parameter amount. 
+
+function sum(...number: number[]){
+
+}
+
+sum(1,2,3,4,)
+sum(1,2)
+sum(1,2,3,4,6,8,2)
+
+
+- ANOTHER WAY for a function to have multiple different parameters
+
+function getItemLength(name: string): number;
+function getItemLength(names: string[]): number;
+function getItemLength(nameOrNames: unknown): number{
+    if (typeof nameOrNames === "string"){
+        return nameOrNames.length
+    } else if(Array.isArray(nameOrNames)){
+        return nameOrNames.length
+    }
+    return 0
+}
+
+
+const x = getItemLength(["ayden","matt", "joe"]);
+console.log("This is how many names I hav
+
+-----------------------------------------------------------------
+
+3.3 Interfaces 
+- Is a programming structure/syntax that allows the computer top enforce certain properties on an object. 
+- They allows us to interact with more complex objects and understand what properties they have
+- Use an interface when you want to type in objects that has different properties
+
+
+-----------------------------------------------------------------
+
+4.1 Classes and Abstracts Classes
+
+Making attributes/methods private, you tell other programmers that this method is not intended to be accessed directly. 
+- This can also prevent bugs and errors by ensuring that the internal state of an object can only be changed in controlled ways
+
+There are 3 different attributes and methods classifiers
+
+
+Private - Only that specific class can access it
+public - Anything and everywhere 
+protected - Any subclass "extends" can access it
+
+If it doesn't need to be public, then make it protected.
+If it doesn't need to be protected then make it private. 
+
+ABSTRACT CLASSES:
+Abstract class is restricted class that cannot be used to created objects and designed to be specifically used as a base class 
+Abstract class is meant to act as a base class that will be inherited from by a subclass
+
+- This tells me that we can not create an instance of that class
+
+
+------------------------------------------------------------------------------
+
+4.2 Classes and Interfaces
+
+Concrete or abstract class
+
+
+Implementing an interface
+- We define it, we write it out, we declare its existence we don't implement all of the functionality 
+
+
+A class is the blueprint for creating different objects 
+
+
+In the example:
+- We just viewed the class in the lens of the interface of Animal
+	- This is from the object creations 
+
+We look at an object through the lens of a specific interface
+
+
+We to use an interface
+- You use an interface when there's no functionality that you want to define concretely
+
+Abstract Class
+- By using an abstract class, you are going to be writing a behavior that will be reuse by on of the concrete classes. 
+
+Normal Base Class
+- When you don't need any type of implementation class or methods
+
+Overall:
+It simplifies our program and it allows us to treat different objects as if they were the same type
+- Making things more flexible
+
+
+------------------------------------------------------------------------------
+
+4.3 - Static Attributes and Methods
+
+
+STATIC
+- The static keyword is a non-access modifier used for methods and attributes 
+	- Variables and methods that are associated with the class rather than with each instance of the class. 
+This exist on the actual class, not each instance. "object" 
+- Track the number of instances that exist
+- When you have some variables that belongs inside of the class
+"SHARED VALUE"
+
+Overall - When something belongs inside an instance class, but doesn't need to be on every instance. 
+	- You can have it as a static attribute
+
+STATIC MTHODS VVVVVV
+this. = calling the instance of that class static
+	- getting more of the typeof
+
+------------------------------------------------------------------------------
+
+4.4 - Generic
+
+.push = how to add to a list/array
+/splice = how to remove from a list/array 
+	- Via index
+
+Generic: 
+allow you to write reusable code that works with any type while sill keeping type safety
+- It allows us to have more flexible functions, methods, classes, etc. That can accept any different data types.
+
+In Angular Specifically
+- Most of your generic usage will be: 
+	- // Typing your HTTP calls
+this.http.get<Dog[]>('/api/dogs').subscribe(dogs => {
+    this.dogs = dogs; // TypeScript knows this is Dog[]
+})
+
+- Without the generic, TypeSciprt wouldn't know what type comes back from the API, you'd lose all type safety on the response 
+- So you'll use them all the time, but you'll rarely need to create your own from scratch, especially starting out
+
+
+------------------------------------------------------------------------------
+
+5.1 Type Aliases
+
+non-object base types
+- custom types 
+
+When working with classes: you create interface
+
+
+A type alias is simply giving a custom name to a type using the type keyword
+
+Purpose
+
+Reusability — define once, use everywhere
+Readability — code is cleaner and self-documenting
+Consistency — one place to update if the type changes
+
+Simple example: 
+type StringOrNumber = string | number | boolean;
+
+
+function acceptVal(val: StringOrNumber){
+    
+}
+
+
+------------------------------------------------------------------------------
+
+5.2 Union and Intersection
+
+Union = pip operator - | 'or'
+Intersection = end operator - & 'and'
+- This allows us to combine multiple types together to create some more complex types 
+
+
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
